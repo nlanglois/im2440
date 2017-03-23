@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body ng-app="myApp">
+
+    <div ng-controller="PeopleCtrl">
+
+        <script type="text/ng-template" id="person">
+            {{ person.last }}, {{ person.first }} {{ person.middle }}
+        </script>
+
+        <div ng-repeat="person in people" ng-include="'person'">
+        </div>
+
+    </div>
+
+
+
+    <div ng-controller="PeopleCtrl">
+
+        <h3>Another way of displaying content from the PeopleCtrl:</h3>
+
+        <div ng-repeat="person in people" ng-include="'templates/another_person_view.html'">
+        </div>
+
+    </div>
+
+
+
+    <div ng-controller="PeopleCtrl">
+
+        <h3>Using another view instead, and using a small gender graphic as well:</h3>
+
+        <div ng-repeat="person in people" ng-include="'templates/person_with_gender_view.html'">
+        </div>
+
+    </div>
+
+
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js" type="text/javascript"></script>
+<script src="script.js" type="text/javascript"></script>
+
+</html>

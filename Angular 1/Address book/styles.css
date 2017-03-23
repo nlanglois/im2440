@@ -1,0 +1,61 @@
+body {
+    font-family: sans-serif;
+    font-weight: 100;
+    background: #ccc;
+}
+
+h1 {
+    text-align: center;
+    color: #666;
+    text-shadow: 0 2px 0 #fff;
+}
+
+.wrapper {
+    width: 350px;
+    margin: 0 auto;
+    box-shadow: 5px 5px 5px #555;
+    background: #fff;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+div.wrapper div.filter {
+    margin: 5px 0;
+    padding: 5px;
+    background-color: #aaa;
+}
+
+div.wrapper div.contact-item {
+    border-bottom: thin solid #ccc;
+    padding: 10px;
+}
+
+div.contact-item div.clear {
+    clear: both;
+}
+
+div.contact-item div.leftSide {
+    float: left;
+    width: 45%;
+}
+
+div.contact-item div.rightSide {
+    float: right;
+    width: 45%;
+}
+
+div.contact-item .fname,
+div.contact-item .lname {
+    font-size: 18px;
+}
+
+div.contact-item .address {
+    font-style: italic;
+    font-size: 13px;
+}
+
+div.contact-item .email,
+div.contact-item .phone {
+    text-align: right;
+}
+

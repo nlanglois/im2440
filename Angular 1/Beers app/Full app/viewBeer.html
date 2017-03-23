@@ -1,0 +1,56 @@
+<table class="table table-striped table-hover beerDetails left">
+    <tr>
+        <td>Beer name:</td>
+        <td><strong>{{ beer.beer_name }}</strong></td>
+    </tr>
+    <tr>
+        <td>Type:</td>
+        <td>{{ beer.beer_type }}</td>
+    </tr>
+    <tr>
+        <td>ABV:</td>
+        <td>{{ beer.beer_abv }}</td>
+    </tr>
+    <tr>
+        <td>IBU:</td>
+        <td>{{ beer.beer_ibu }}</td>
+    </tr>
+    <tr>
+        <td>Rating:</td>
+        <td>{{ beer.rating_score }} of 5 stars</td>
+    </tr>
+</table>
+
+
+
+<table class="table table-striped table-hover beerDetails right">
+    <tr>
+        <td>Brewery name:</td>
+        <td><a href="{{ beer.brewery_url }}" target="_blank">{{ beer.brewery_name }}</a></td>
+    </tr>
+    <tr>
+        <td>Brewery country:</td>
+        <td>{{ beer.brewery_country }}</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Venue name:</td>
+        <td>{{ beer.venue_name }}</td>
+    </tr>
+    <tr>
+        <td>Venue city:</td>
+        <td>{{ beer.venue_city }}</td>
+    </tr>
+    <tr>
+        <td>Venue state:</td>
+        <td>{{ beer.venue_state }}</td>
+    </tr>
+</table>
+
+
+<div class="backToBeerList">
+    <a href="#/home">&laquo; Back to beer list</a>
+</div>

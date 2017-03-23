@@ -1,0 +1,64 @@
+<!--
+Filters allow you to format and transform data. They change the output of expressions inside the curly braces. AngularJS comes with a bunch of useful filters.
+
+Built-in Filters:
+filter: search for a given string in an array and return matches.
+Number: adds comma-separated 1000’s and two decimal places.
+Currency: the same as Number and adds a $ in front.
+Date: takes a Unix timestamp (e.g. 1288323623006) or date string and output it in the format that you specify (e.g. ‘longDate’ or fragments ‘yyyy’ for a four-digit year). For a full list see here.
+JSON: converts javascript objects to JSON strings.
+lowercase/uppercase: converts strings to lowercase/uppercase.
+limitTo: number of elements from an array to show.
+orderBy: order array of objects by a key that you specify.
+
+
+Examples:
+  1) {{ "iMac" | uppercase }} <br> Returns: IMAC
+  2) {{ 2895 | currency }} <br> Returns: $2,895.00
+  3) {{ 1288323623006 | date:"MM/dd/yyyy 'at' h:mma"}} <br> Returns: 10/28/2010 at 10:40PM
+  4) {{ ['ca', 'ba', 'az'] | limitTo: 2 }} <br> Returns: ["ca","ba"]
+  5) {{ {'name':'Nikolai', 'last': 'Langlois' } | json }} Returns: { "name": "Nikolai", "last": "Langlois" }
+  6) {{ [{n: 'Travis'}, {n: 'Steven'}, {n: 'Caleb'}] | orderBy: '+n' | limitTo: 2 }} <br> Returns: [{"n":"Travis"},{"n":"Steven"}]
+
+
+
+Notice that we are using search.name in the ng-model for search. That will limit the search to the name attribute and search.notes will look inside the notes only. If you were to use only search instead of search.notes it would search through all the object attributes in the controller's scope.
+-->
+
+<html ng-app="app">
+<head>
+    <title>Using Filters with an AngularJS app</title>
+</head>
+<body>
+
+<ng-view></ng-view>
+
+<!-- Main page "template" -->
+<script type="text/ng-template" id="/index.html">
+    Search: <input type="text" ng-model="search.name">
+    <ul>
+        <li ng-repeat="todo in todos | filter: search">
+            <input type="checkbox" ng-model="todo.completed">
+            <a href="#/{{$index}}">{{todo.name}}</a>
+        </li>
+    </ul>
+</script>
+
+<!-- Details "page" template -->
+<script type="text/ng-template" id="/todoDetails.html">
+    <h1>{{ todo.name }}</h1>
+    completed: <input type="checkbox" ng-model="todo.completed">
+    note: <textarea>{{ todo.note }}</textarea>
+</script>
+
+
+
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js" type="text/javascript"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.min.js" type="text/javascript"></script>
+<script src="script.js" type="text/javascript"></script>
+
+</html>

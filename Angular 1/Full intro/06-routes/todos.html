@@ -1,0 +1,39 @@
+w<!--
+Templates contain HTML and Angular elements (directives, markup, filters or form controls). They can be cached and referenced by an id. Notice they are inside the script and has a type of text/ng-template.
+
+ngRoutes module allows changing what we see in the app depending on the URL (route). Usually, it uses templates to inject the HTML into the app.
+
+It does not come with the AngularJS core module, so we have to list it as a dependency.
+
+First notice that we removed ng-controller="TodoController" from the body tag. The controllers are now called based on the route.
+
+ngView is a directive used by $routeProvider to render HTML into it. Every time the URL changes, it will inject a new HTML template and controller into ngView.
+-->
+
+<html ng-app="app">
+<head>
+    <title>Templates and Routes in AngularJS</title>
+</head>
+<body>
+
+<ng-view></ng-view>
+
+<!-- Template -->
+<script type="text/ng-template" id="/todos.html">
+    <ul>
+        <li ng-repeat="todo in todos">
+            <input type="checkbox" ng-model="todo.completed">
+            {{todo.name}}
+        </li>
+    </ul>
+</script>
+
+
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular-route.min.js" type="text/javascript"></script>
+<script src="script.js" type="text/javascript"></script>
+
+</html>

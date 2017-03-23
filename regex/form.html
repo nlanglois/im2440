@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <title>HTML 5 and JS form validation</title>
+
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script type="text/javascript" src="processor.js"></script>
+</head>
+<body>
+
+
+    <p>
+        The JS attached to this form will prevent the form from submitting and change field border color to red unless user corrects the invalid or empty fields.
+    </p>
+
+    <form id="my_form" action="process_my_form_and_write_to_a_database.php" method="get">
+
+        <label>Name: <input type="text" name="name_field" doJsValidate="true"/></label>
+
+        <label>Email: <input type="email" name="email_field" doJsValidate="true"/></label>
+
+        <label>Password: <input type="password" name="password_field" doJsValidate="true" /></label>
+
+        <label>Message: <textarea name="message" doJsValidate="true"></textarea></label>
+
+        <input type="submit" />
+
+    </form>
+
+
+<!--
+    Could we add a phone field, and validate it? Make sure the format matches 999-999-9999.
+
+    How about that the password includes at least one number, is 8 characters long, and has to have at least one
+    of these characters? *&^%$#@!
+-->
+
+
+
+</body>
+</html>

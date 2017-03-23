@@ -1,0 +1,43 @@
+<!--
+Modules are a way to encapsulate different parts of your application. They allow reusing code in other places. Here’s an example of how to rewrite the controller from the previous example using modules.
+
+Using modules brings many advantages. They can be loaded in any order, and support parallel dependency loading. Also, tests can only load the required modules and keep it fast, clear view of the dependencies.
+-->
+
+<html ng-app="app">
+<head>
+    <title>Controllers in AngularJS</title>
+</head>
+<body>
+
+
+<div ng-controller="TodoController">
+    <ul>
+        <li ng-repeat="todo in todos">
+            <input type="checkbox" ng-model="todo.completed">
+            {{ todo.name }}
+        </li>
+    </ul>
+</div>
+
+
+
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js"></script>
+<script type="text/javascript">
+    angular.module("app", [])
+            .controller('TodoController', ['$scope', function ($scope) {
+                $scope.todos = [
+                    { name: 'Master HTML/CSS/Javascript', completed: true },
+                    { name: 'Learn AngularJS', completed: false },
+                    { name: 'Build NodeJS backend', completed: false },
+                    { name: 'Get started with ExpressJS', completed: false },
+                    { name: 'Setup MongoDB database', completed: false },
+                    { name: 'Be amazing!', completed: false },
+                ];
+            }]);
+</script>
+
+</html>

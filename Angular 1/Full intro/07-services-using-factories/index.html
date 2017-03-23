@@ -1,0 +1,59 @@
+<!--
+Notice that if you want to create a 2nd controller and share $scope.todos it is not possible right now. That is when services become handy. Services are a way to inject data dependencies into controllers. They are created through factories.
+
+We are now injecting the data dependency Todo into the controllers. This way we could reuse the data to any controller or module that we need to. This is not only used for static data like the array. But we could also do server calls using $http or even RESTful $resource.
+
+Let’s say we want to show the details of the task when we click on it. For that, we need to create a 2nd controller, template, and route that uses this service.
+
+
+(NOTE: Click on the links and it will take you to the todo details. Use backspace key to go back to the main menu)
+
+This is what is happening:
+
+In the HTML tab, we created a second template /todoDetails.html which contains the todo details we want to show.
+
+Also, in our previous template /index.html we want to have a link that points to the todo detail. We are using the $index which is the corresponding order number in a ng-repeat.
+
+In the JS file, we created a new $routeProvider . It points to a new controller TodoDetailCtrl and the template that we created on #1. The :id parameter it is accessible in the controllers through $routeParams.
+
+We Created the new controller TodoDetailCtrl. Also, we injected the dependencies which are $scope, Todos (factory), and $routeParams which will have the id param.
+
+Set the $scope in the new controller. Instead of using the whole array, we are going to select only the one that we need using the id that we set in step #2.
+-->
+
+<html ng-app="app">
+<head>
+    <title>Services using Factories in AngularJS</title>
+</head>
+<body>
+
+<ng-view></ng-view>
+
+<!-- Template -->
+<script type="text/ng-template" id="/index.html">
+    <ul>
+        <li ng-repeat="todo in todos">
+            <input type="checkbox" ng-model="todo.completed">
+            <a href="#/{{$index}}">{{ todo.name }}</a> {{ todo.note }}
+        </li>
+    </ul>
+</script>
+
+
+<!-- Template -->
+<script type="text/ng-template" id="/todoDetails.html">
+    <h3>Todo item: {{ todo.name }}</h3>
+
+    <p>
+        Completed? <input type="checkbox" ng-model="todo.completed"><br />
+        Note: <textarea>{{ todo.note }}</textarea>
+    </p>
+</script>
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js" type="text/javascript"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.min.js" type="text/javascript"></script>
+<script src="script.js" type="text/javascript"></script>
+
+</html>

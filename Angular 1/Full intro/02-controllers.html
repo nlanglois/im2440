@@ -1,0 +1,65 @@
+<!--
+$scope it is an object that contains all the data to which HTML is bound. They are the glue your javascript code (controllers) and the view (HTML). Everything that is attached to the $scope, it is $watched by AngularJS and updated.
+
+Scopes can be bound to javascript functions. Also, you could have more than one $scope and inherit from outer ones. More on this, in the controller’s section.
+
+Angular.js controllers are code that “controls” certain sections containing DOM elements. They encapsulate the behavior, callbacks and glue $scope models with views.
+
+ng-controller is a directive that tells angular what function controller to use for a particular view. Every time AngularJS loads, it reads the ng-controller argument (in this case “TodoController”). Then, it will look for a function in plain old javascript object (POJO) with the same name or for angular.controller matching name.
+
+$scope‘s are the glue between the data models in the controllers and the views. Take a look at our “TodoController”: it has a parameter named $scope. AngularJS is going to pass ($inject) that parameter, and whatever you attach to it, it will be available in the view. In this example is the particular is the todos array of objects.
+
+ng-repeat as its name implies is going to “repeat” the element and sub-elements where this directive is declared. It is going to iterate for each element in the $scope.todos array.
+
+ng-model notice that the checkbox is bound to the todo.completed. If todo.completed is true, then the checkbox is going to be checked and vice versa.
+-->
+
+<html ng-app>
+<head>
+    <title>Controllers in AngularJS</title>
+</head>
+<body ng-controller="TodoController">
+
+
+    <!-- List of checkboxes of our to-do's -->
+    <ul>
+        <li ng-repeat="todo in todos">
+            <input type="checkbox" ng-model="todo.completed">
+            {{ todo.name }}
+        </li>
+    </ul>
+
+
+    <!-- Drop-down menu of our to-do's -->
+    <select name="todos">
+        <option ng-repeat="todo in todos" value="{{ todo.completed }}">{{ todo.name }}</option>
+    </select>
+
+    <!--
+        For arrays:
+        array[0] , array['name']
+
+        For objects:
+        array.0 , array.name
+    -->
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js"></script>
+<script>
+    function TodoController($scope){
+        $scope.todos = [
+            {
+                name: 'Master HTML / CSS / Javascript',
+                completed: true
+            },
+            { name: 'Learn AngularJS', completed: false },
+            { name: 'Build NodeJS backend', completed: false },
+            { name: 'Learn Yii2 framework', completed: false },
+            { name: 'Setup MongoDB database', completed: false },
+            { name: 'Get going with CSS 3', completed: false },
+        ]
+    }
+</script>
+
+</html>

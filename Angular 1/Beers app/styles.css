@@ -1,0 +1,32 @@
+.mainGrid td {
+    width: 22.5%;
+}
+.mainGrid td:last-child {
+    width: 10%;
+    text-align: center;
+}
+
+span.highlighted {
+    font-weight: bold;
+}
+
+
+table.beerDetails {
+    width: 40%;
+    margin: 20px 40px;
+}
+
+.left {
+    float: left;
+}
+.right {
+    float: right;
+}
+
+
+.backToBeerList {
+    clear: both;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+}

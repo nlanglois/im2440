@@ -1,0 +1,180 @@
+/*
+
+#cardSlots and #cardPile — the rectangles containing the slots and unsorted cards respectively — are given a 2-pixel dark grey border with rounded corners and a drop shadow.
+
+
+#cardSlots div and #cardPile div select the slots and cards themselves. They're floated left so they all line up in a horizontal row, and given some padding and the same style border as the #cardSlots and #cardPile rectangles. Additionally, the card slots are given a dashed border, and the cards are given a nice big font for the numbers. The text-shadow property is used to put an outline around the numbers.
+
+
+#cardSlots div.hovered is triggered when a card hovers over a slot, thanks to the hoverclass: 'hovered' option we added in Step 2 above. We give this selector a darker grey background, so that the slot is highlighted when a card is hovered over it. This helps the user identify which slot they're dropping the card onto.
+
+
+#cardPile div.ui-draggable-dragging is triggered when a card is being dragged (see Styling draggable elements). We give this selector a drop shadow so the card appears to be floating above the page.
+
+
+#card1.correct through #card10.correct select the individual cards once they've been correctly placed, due to the call to addClass() that we made inside handleCardDrop() (see Step 3 above). We give each correct card a different color to create a nice rainbow effect. We can do this because we gave each card a unique id in Step 2.
+
+
+Finally, #successMessage styles the "Success!" box, positioning it centrally in the page and giving it a green background, curvy border and box shadow. We set its width and height to zero initially, so we can zoom it in when the user wins the game.
+
+*/
+
+
+body {
+    margin: 30px;
+    font-family: "Georgia", serif;
+    line-height: 1.8em;
+    color: #333;
+}
+
+h1, h2, h3, h4 {
+    font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+}
+h1 {
+    font-weight: bold;
+    margin: 20px;
+    color: #666;
+    font-size: 1.5em;
+}
+
+
+
+
+
+
+/* See https://css-tricks.com/almanac/properties/u/user-select/ to see why we're using user-select: none */
+div#content {
+    margin: 80px 70px;
+    text-align: center;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+
+/* Styles to define the original and final card positions */
+div#cardSlots {
+    margin: 50px auto 0;
+    background-color: #ddffdd;
+}
+
+
+/* The initial pile of the unsorted cards */
+div#cardPile {
+    margin: 0 auto;
+    background-color: #ffd;
+}
+
+
+/* Broad styles for the containers of the cards */
+div#cardSlots, div#cardPile {
+    width: 910px;
+    height: 120px;
+    padding: 20px;
+    border: 2px solid #333;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 0 0.3em black;
+    -moz-box-shadow: 0 0 0.3em black;
+    box-shadow: 0 0 0.3em black;
+}
+
+
+
+
+
+
+/* For the individual cards and slots */
+div#cardSlots div, div#cardPile div {
+    float: left;
+    width: 50px;
+    height: 78px;
+    padding: 40px 10px 0;
+    border: 2px solid #333;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    margin: 0 0 0 10px;
+    background-color: white;
+}
+
+
+div#cardSlots div:first-child,
+div#cardPile div:first-child {
+    margin-left: 0;
+}
+
+
+/* For when something is dragged on top of a card slot */
+div#cardSlots div.hovered {
+    background-color: #aaa;
+}
+
+
+
+
+/* Overwrites card pile div styles (makes font bigger, changes background color, etc.) */
+div#cardPile div {
+    background-color: #666;
+    color: #fff;
+    font-size: 50px;
+    text-shadow: 0 0 0.3em black;
+}
+
+/* Overwrites card slots border style */
+div#cardSlots div {
+    border-style: dashed;
+}
+
+
+
+div#cardPile div.ui-draggable-dragging {
+    -webkit-box-shadow: 0 0 0.5em black;
+    -moz-box-shadow: 0 0 0.5em black;
+    box-shadow: 0 0 0.5em black;
+}
+
+
+
+
+
+/* Colors each individual card (for once it's been placed correctly in its spot */
+div#card1.correct { background-color: red; }
+div#card2.correct { background-color: brown; }
+div#card3.correct { background-color: orange; }
+div#card4.correct { background-color: yellow; }
+div#card5.correct { background-color: green; }
+div#card6.correct { background-color: cyan; }
+div#card7.correct { background-color: blue; }
+div#card8.correct { background-color: indigo; }
+div#card9.correct { background-color: purple; }
+div#card10.correct { background-color: violet; }
+
+
+
+
+
+
+
+
+/* Handles formatting the success message */
+div#successMessage {
+    position: absolute;
+    left: 580px;
+    top: 250px;
+    width: 0;
+    height: 0;
+    z-index: 40;
+    background-color: dodgerblue;
+    border: 2px solid #333;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0.3em 0.3em 0.5em black;
+    -moz-box-shadow: 0.3em 0.3em 0.5em black;
+    box-shadow: 0.3em 0.3em 0.5em black;
+    padding: 20px;
+}

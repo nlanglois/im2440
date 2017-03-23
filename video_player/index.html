@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Video HTML 5 Player Application</title>
+    <script type="text/javascript" src="code.js"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+
+
+    <div class="videoPlayer">
+
+        <h1>My Video Player</h1>
+
+
+            <div class="videoLeft">
+
+                <!-- single video element for whole application -->
+                <video id="video" src="" poster="" width="400" height="250" onclick="togglePlayPause()">
+
+                </video>
+
+                <!-- video progress bar -->
+                <progress value="0" max="100">
+                    <div class="progress-bar">
+                        xxx
+                    </div>
+                </progress>
+
+                <p id="currentTimeInVideo"></p>
+
+
+
+                <!-- contains all video control elements (buttons) -->
+                <div class="videoControls">
+                    <!-- video player controls live here -->
+
+                    <button id="play-pause-btn" class="play" title="play" onclick="togglePlayPause()">
+                        Play
+                    </button>
+
+                    <button id="stop-btn" class="stop" title="stop" onclick="stopVideo()">
+                        Stop
+                    </button>
+
+
+
+                    <button id="rewind-btn" class="rewind" title="rewind" onclick="rwAndFfVideo('rw', 0.5)">
+                        <<
+                    </button>
+
+                    <button id="fastforward-btn" class="fastforward" title="fastforward" onclick="rwAndFfVideo('ff', 0.5)">
+                        >>
+                    </button>
+
+
+                    Vol:
+                    <input type="range" id="volume" onchange="changeVolume()" step="0.05" min="0" max="1" value="1">
+
+                    <button id="mute-btn" class="mute" title="mute" onclick="toggleMute()">
+                        Mute
+                    </button>
+
+                    <button id="full-screen" class="full-screen" title="full screen" onclick="fullScreen()">
+                        [ ]
+                    </button>
+
+
+                    <button id='replay-button' class='replay' title='replay' onclick='replayVideo();'>
+                        Replay
+                    </button>
+
+
+                </div>
+
+
+            </div><!-- closes videoLeft div -->
+
+
+            <div class="videoRight">
+                <!-- playlist will live here -->
+
+                <a onclick="loadVideo('Big_Buck_Bunny')">
+                    <img src="poster/Big_Buck_Bunny.jpg" />
+                    <p class="title">Big Buck Bunny</p>
+                    <p class="desc">Big Buck Bunny (code-named Peach) is a short computer-animated comedy film by the Blender Institute, part of the Blender Foundation. Like the foundation's previous film Elephants Dream, the film was made using Blender, a free software application for animation made by the same foundation.</p>
+                </a>
+
+                <a onclick="loadVideo('Silence_of_the_Lambs')">
+                    <img src="poster/Silence_of_the_Lambs.jpg" />
+                    <p class="title">Silence of the Lambs Trailer<p>
+                    <p class="desc">In the film, Clarice Starling, a young U.S. FBI trainee, seeks the advice of the imprisoned Dr. Lecter to apprehend another serial killer, known only as "Buffalo Bill". The Silence of the Lambs was released on February 14, 1991, and grossed $272.7 million worldwide against its $19 million budget.</p>
+                </a>
+
+                <a onclick="loadVideo('Predator')">
+                    <img src="poster/Predator.jpg" />
+                    <p class="title">Predator Trailer</p>
+                    <p class="desc">Dutch (Arnold Schwarzenegger) and his elite commando team arrive in an unnamed Central American country. They meet a general, Phillips, whom Dutch has worked for in the past, and with a CIA agent, Dillon (Carl Weathers), whom Dutch also knows. Dillon tells Dutch that a high-ranking "cabinet minister" traveling by helicopter nearby has gone missing in the jungle, presumably shot down by a rebel guerrilla group operating in the area. Dutch's team has been charged with going over the border and into rebel territory to rescue the man.</p>
+                </a>
+
+            </div>
+
+    </div>
+
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

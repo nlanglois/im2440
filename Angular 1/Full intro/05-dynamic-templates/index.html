@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Questionnaire App using Dynamic Templates</title>
+    <link href="styles.css" rel="stylesheet">
+</head>
+<body ng-app="myApp">
+
+    <h3>Questionnaire</h3>
+
+
+
+    <script type="text/ng-template" id="questionnaire">
+
+        <div class="question">
+
+            <span class="num">{{ question.number }}.) </span>
+            <span class="question">{{ question.question }}</span>
+            <span>//{{ question.type }}</span>
+            <div class="answer" ng-include="'templates/' + question.type + '.html'"></div>
+
+        </div>
+
+    </script>
+
+
+
+
+
+
+    <div ng-controller="QuestionnaireCtrl">
+        <div ng-repeat="question in questionnaire" ng-include="'questionnaire'"></div>
+    </div>
+
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js" type="text/javascript"></script>
+<script src="script.js" type="text/javascript"></script>
+
+</html>

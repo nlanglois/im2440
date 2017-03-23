@@ -1,0 +1,21 @@
+<!--
+ng-app: is a directive that bootstraps AngularJS. It designates the caller element as the root. It’s usually placed on <html> or <body>.
+
+ng-model: is a directive that usually binds form elements. For instance, input, select, checkboxes, textarea. They keep data (model) and visual elements (HTML) in sync.
+
+{{ name }} {{ }} are a way of binding models to elements in HTML. In the example above, the ng-model name is bound to the placeholder {{ name }}. Play with the example below to see how the placeholder is updated real-time to whatever you type in the textbox.
+-->
+
+<html ng-app>
+<head>
+    <title>Hello World in AngularJS</title>
+</head>
+<body>
+
+<input ng-model="name" type="text" /> Hello {{ name }}
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.27/angular.min.js"></script>
+
+</body>
+</html>

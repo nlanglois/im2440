@@ -1,0 +1,32 @@
+<p>{{ message }}</p>
+
+
+<p>Total number of beers: {{ beers.length | number }}</p>
+
+<table class="mainGrid table table-striped table-hover">
+
+    <tr>
+        <th>Beer name</th>
+        <th>Brewery</th>
+        <th>Type of beer</th>
+        <th>From</th>
+        <th></th>
+    </tr>
+
+    <tr>
+        <td><input name="name" type='text' ng-model='searchBeerName' /></td>
+        <td><input name="brewery" type='text' ng-model='searchBreweryName' /></td>
+        <td><input name="type" type='text' ng-model='searchBeerType' /></td>
+        <td><input name="from" type="text" ng-model='searchFrom' /></td>
+        <td>{{ filtered.length | number }} beers</td>
+    </tr>
+
+    <tr ng-repeat="beer in beers | orderBy: 'beer_name' | filter:{beer_name:searchBeerName, brewery_name:searchBreweryName, beer_type:searchBeerType, brewery_country:searchFrom} as filtered " >
+        <td ng-bind-html="(beer.beer_name | highlight:searchBeerName)">{{ beer.beer_name }}</td>
+        <td ng-bind-html="(beer.brewery_name | highlight:searchBreweryName)">{{ beer.brewery_name }}</td>
+        <td ng-bind-html="(beer.beer_type | highlight:searchBeerType)">{{ beer.beer_type }}</td>
+        <td ng-bind-html="(beer.brewery_country | highlight:searchFrom)">{{ beer.brewery_country }}</td>
+        <td><a href="#/viewBeer/{{ beer._id.$oid }}">edit</a></td>
+    </tr>
+
+</table>

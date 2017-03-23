@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+    <title>Handling Drag Stop Events</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+
+    <script type="text/javascript">
+
+        $( init );
+
+        function init() {
+            $('#makeMeDraggable').draggable( {
+                cursor: 'move',
+                containment: 'document',
+                stop: handleDragStop
+            } );
+        }
+
+        function handleDragStop( event, ui ) {
+            var offsetXPos = parseInt( ui.offset.left );
+            var offsetYPos = parseInt( ui.offset.top );
+            alert( "Drag stopped!\n\nOffset: (" + offsetXPos + ", " + offsetYPos + ")\n");
+        }
+
+    </script>
+
+</head>
+<body>
+
+
+<div id="content">
+    <div id="makeMeDraggable"> </div>
+</div>
+
+
+</body>
+</html>
+
+

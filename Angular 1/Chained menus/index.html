@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+    <title>AngularJS Chained Drop-down Menus</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js" type="text/javascript"></script>
+    <script src="app.js" type="text/javascript"></script>
+    <script src="mainController.js" type="text/javascript"></script> </head>
+
+<body>
+
+
+<div id='content' ng-app='MusicApp' ng-controller='MainController'>
+
+    <h3>Chained drop-down menus:</h3>
+
+
+    <!--
+        Here we have a select input with ng-options tag.
+        This allows us to populate this select input with
+        the values from the people scope variable, using
+        the name attribute within the person objects as
+        the label, making the actual value of the select
+        option, the object itself.
+    -->
+    <select ng-model='selectedPerson' ng-options='obj.name for obj in people'></select>
+
+
+
+    <!--
+        The ng-repeat directive is one of the most powerful
+        features of AngularJS. ng-repeat simply allows you
+        to replicate HTML elements based on an array or set
+        of objects. In this case, the ng-repeat will create
+        an option for each of the music genres within the
+        people.music array based on the selectedPersons ID
+        value which is determined by the first selected box
+        as we have declared selectedPerson as its model as
+        we did before with the input.
+    -->
+    <select ng-model='selectedGenre'>
+
+        <option ng-repeat='label in people[selectedPerson.id].music'>{{label}}</option>
+
+    </select>
+
+
+</div>
+</body>
+</html>

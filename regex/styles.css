@@ -1,0 +1,4 @@
+form#my_form label {
+    display: block;
+    margin: 20px;
+}

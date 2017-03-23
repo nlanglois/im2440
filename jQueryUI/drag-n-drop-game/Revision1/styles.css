@@ -1,0 +1,197 @@
+body {
+    margin: 30px;
+    font-family: "Georgia", serif;
+    line-height: 1.8em;
+    color: #333;
+}
+
+h1, h2, h3, h4 {
+    font-family: "Lucida Grande", "Lucida Sans Unicode", sans-serif;
+}
+h1 {
+    font-weight: bold;
+    margin: 20px;
+    color: #666;
+    font-size: 1.5em;
+}
+
+
+
+
+
+
+/* See https://css-tricks.com/almanac/properties/u/user-select/ to see why we're using user-select: none */
+div#content {
+    margin: 80px auto;
+    width: 80%;
+    text-align: center;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+
+
+
+/* Styles to define the original and final card positions */
+div#cardSlots {
+    margin: 50px auto 0;
+    background: #ddffdd;
+}
+
+
+
+/* The initial pile of the unsorted cards */
+div#cardPile {
+    margin: 0 auto;
+    background-color: #ffd;
+}
+
+
+
+/* Broad styles for the containers of the cards */
+div#cardSlots,
+div#cardPile {
+    /*
+    width: 910px;
+    */
+    min-height: 50px;
+    padding: 20px;
+    border: 2px solid #333;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0 0 0.3em black;
+    -moz-box-shadow: 0 0 0.3em black;
+    box-shadow: 0 0 0.3em black;
+}
+
+
+
+div#cardPile div {
+    background-position: 50% 50%;
+    background-repeat: space;
+}
+
+div#cardPile div#card1 { background-image: url(flags/belgium.gif); }
+div#cardPile div#card2 { background-image: url(flags/brazil.gif); }
+div#cardPile div#card3 { background-image: url(flags/france.gif); }
+div#cardPile div#card4 { background-image: url(flags/germany.gif); }
+div#cardPile div#card5 { background-image: url(flags/italy.gif); }
+div#cardPile div#card6 { background-image: url(flags/japan.gif); }
+div#cardPile div#card7 { background-image: url(flags/spain.gif); }
+div#cardPile div#card8 { background-image: url(flags/sweden.gif); }
+div#cardPile div#card9 { background-image: url(flags/uk.gif); }
+div#cardPile div#card10 { background-image: url(flags/usa.gif); }
+
+
+
+/* For the individual cards and slots */
+div#cardSlots div,
+div#cardPile div {
+    float: left;
+    width: 5%;
+    min-height: 90%;
+    text-align: center;
+    padding: 40px 10px 0;
+    border: 2px solid #333;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    margin: 0 10px 10px;
+}
+
+
+
+div#cardPile .clear,
+div#cardSlots .clear {
+    clear: left;
+    visibility: hidden;
+}
+
+
+
+div#cardSlots div:first-child,
+div#cardPile div:first-child {
+    margin-left: 0;
+}
+
+
+/* For when something is dragged on top of a card slot */
+div#cardSlots div.hovered {
+    background-color: #aaa;
+}
+
+
+
+
+/* Overwrites card pile div styles (makes font bigger, changes background color, etc.) */
+div#cardPile div {
+    background-color: #666;
+    color: #fff;
+    font-size: 20px;
+    text-shadow: 1px 1px 0.1em black;
+    text-transform: uppercase;
+}
+
+/* Overwrites card slots border style */
+div#cardSlots div {
+    border-style: dashed;
+}
+
+
+
+div#cardPile div.ui-draggable-dragging {
+    -webkit-box-shadow: 0 0 0.5em black;
+    -moz-box-shadow: 0 0 0.5em black;
+    box-shadow: 0 0 0.5em black;
+}
+
+
+
+
+/*
+div#cardPile div.correct {
+    border-width: 10px;
+    border-style: double;
+}
+*/
+
+/* Colors each individual card (for once it's been placed correctly in its spot */
+/*
+div#card1.correct { border-color: red; }
+div#card2.correct { border-color: brown; }
+div#card3.correct { border-color: orange; }
+div#card4.correct { border-color: yellow; }
+div#card5.correct { border-color: green; }
+div#card6.correct { border-color: cyan; }
+div#card7.correct { border-color: blue; }
+div#card8.correct { border-color: indigo; }
+div#card9.correct { border-color: purple; }
+div#card10.correct { border-color: violet; }
+*/
+
+
+
+
+
+
+
+/* Handles formatting the success message */
+div#successMessage {
+    position: absolute;
+    left: 580px;
+    top: 250px;
+    width: 0;
+    height: 0;
+    z-index: 40;
+    background-color: dodgerblue;
+    border: 2px solid #333;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    -webkit-box-shadow: 0.3em 0.3em 0.5em black;
+    -moz-box-shadow: 0.3em 0.3em 0.5em black;
+    box-shadow: 0.3em 0.3em 0.5em black;
+    padding: 20px;
+}
